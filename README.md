@@ -7,7 +7,8 @@ flexible_thread_pool ，auto expand thread and reduce threads. both support sync
 另一个本人实现的可自动扩大和缩小的线程池： https://github.com/ydf0509/threadpool_executor_shrink_able
 
 
-
+说明：
+此线程池支持submit 方法，但不支持Future特性，只支持简单粗暴的submit自动并发执行。
 
 # 2. 安装
 pip install flexible_thread_pool

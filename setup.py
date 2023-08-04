@@ -8,7 +8,7 @@ setup(
         'flexible_thread_pool ，auto expand thread and reduce threads. both support sync and asyncio,fast than concurrent.futures.ThreadpoolExecutor'
     ),
     # long_description=open('README.md', 'r',encoding='utf8').read(),
-    keywords=['thread pool','async','asyncio'],
+    keywords=['thread pool','async','asyncio','auto scala','flexible_thread_pool'],
     long_description_content_type="text/markdown",
     long_description=open('README.md', 'r', encoding='utf8').read(),
     author='bfzs',
