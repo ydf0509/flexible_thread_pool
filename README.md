@@ -1,4 +1,4 @@
-# flexible_thread_pool
+# 1. flexible_thread_pool
 
 flexible_thread_pool ，auto expand thread and reduce threads. both support sync and asyncio,fast than concurrent.futures.ThreadpoolExecutor
 
@@ -9,6 +9,11 @@ flexible_thread_pool ，auto expand thread and reduce threads. both support sync
 
 说明：
 此线程池支持submit 方法，但不支持Future特性，只支持简单粗暴的submit自动并发执行。
+
+## 1.2 flexible_thread_pool 性能说明
+
+在 win11 + r5 4600u 这个很差的cpu 前提下， 单核单进程测试下，每秒执行2万次 def f(): pass    函数。
+
 
 # 2. 安装
 pip install flexible_thread_pool
