@@ -12,7 +12,7 @@ flexible_thread_pool ，auto expand thread and reduce threads. both support sync
 
 ## 1.2 flexible_thread_pool 性能说明
 
-在 win11 + r5 4600u 这个很差的cpu 前提下， 单核单进程测试下，每秒执行2万次 def f(): pass    函数。
+在 win11 + r5 4600u 这个很差的cpu 前提下， 单核单进程测试下，每秒执行3万次 def f(): pass    函数。
 
 
 # 2. 安装

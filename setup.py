@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='flexible_thread_pool',  #
-    version='0.1',
+    version='0.2',
     description=(
         'flexible_thread_pool ，auto expand thread and reduce threads. both support sync and asyncio,fast than concurrent.futures.ThreadpoolExecutor'
     ),
@@ -43,7 +43,7 @@ setup(
 
 """
 
-python setup.py sdist & python -m  twine upload dist/flexible_thread_pool-0.1.tar.gz
+python setup.py sdist & python -m  twine upload dist/flexible_thread_pool-0.2.tar.gz
 
 
 
