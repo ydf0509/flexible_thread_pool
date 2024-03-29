@@ -14,6 +14,47 @@ flexible_thread_pool ，auto expand thread and reduce threads. both support sync
 
 在 win11 + r5 4600u 这个很差的cpu 前提下， 单核单进程测试下，100线程池每秒执行3万次 def f(): pass    函数。
 
+## 1.3 重点说明可变线程池和一般线程池区别
+
+例如代码如下:
+```python
+import time
+
+pool = ThreadpoolExecutor(500)
+
+
+def f(x):
+    time.sleep(10)
+    print(x)
+
+for i in  range(10000):
+    time.sleep(1)
+    time.sleep(100)
+    pool.submit(f,i)
+```
+
+### 1.3.1 情景1,不需要开很多线程就能应付函数运行
+```
+假设每隔100秒 submit一个任务到pool中,愚蠢的 ThreadpoolExecutor 线程池会一直扩大到500线程,
+但是 FlexibleThreadPool 即使你设置最大线程为500,也只会开1个线程,因为你每隔100秒才会提交下一个运行,而函数只要10秒就能运行完,
+那需要开500线程做什么?
+
+FlexibleThreadPool 会用最智能的线程数量来应付任务,自适应调节,既不会多开线程浪费,也不会少开线程导致单位时间内运行函数次数变少.
+```
+
+### 1.3.1 情景2,流量高峰过后线程池自动缩小
+
+假设你 9:00 到10:00, 每隔0.00001秒submit一个任务到pool, 10:00后每隔 2秒submit一个任务到pool
+
+```
+愚蠢的线程池,任何时候一直保持线程数量是500
+
+智能的自适应线程池 FlexibleThreadPool,因为9:00-10:00 是流量高峰,而f函数需要10秒才能运行完,
+所以9:00-10:00 会火力全开,开到500线程.
+10:00后每隔 2秒submit一个任务到pool,而f需要耗时10秒,FlexibleThreadPool会自动减少到5个线程刚好使得线程消费和发布速度100%匹配.
+FlexibleThreadPool 时时刻刻在自适应调整线程数量
+```
+
 
 # 2. 安装
 pip install flexible_thread_pool
