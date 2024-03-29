@@ -24,12 +24,12 @@ pool = ThreadpoolExecutor(500)
 
 
 def f(x):
-    time.sleep(10)
+    time.sleep(10) # 这个sleep 模拟函数阻塞耗时,需要开多线程才能在单位时间内执行更多次数的f函数
     print(x)
 
 for i in  range(10000):
     time.sleep(1)
-    time.sleep(100)
+    time.sleep(100)  # 这个sleep模拟消息任务的频繁程度.
     pool.submit(f,i)
 ```
 
