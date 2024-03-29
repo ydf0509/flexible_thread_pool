@@ -64,8 +64,8 @@ FlexibleThreadPool 时时刻刻在自适应调整线程数量
 
 笨瓜线程池会保持500线程.
 
-FlexibleThreadPool 由于后来函数只需要耗时1秒,你每隔0.01秒submit一个任务,
-会从500线程降低到100线程来应付消费.
+FlexibleThreadPool 由于后来函数只需要耗时1秒,你仍然保持每隔0.01秒submit一个任务,
+FlexibleThreadPool 会从500线程降低到100线程来应付消费.
 ```
 
 ### 1.3.4 FlexibleThreadPool 是无视函数耗时多少,自适应调节线程数量.
